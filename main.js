@@ -7,6 +7,7 @@ const SUBMIT = document.getElementById('btn');
 const containers = document.querySelectorAll('.container');
 
 const dialog = document.getElementById('myDialog');
+const MARKER = document.getElementById('marker');
 const ACEPTBTN = document.getElementById('acept');
 const theme = document.getElementById('userAnswer');
 
@@ -24,6 +25,7 @@ ACEPTBTN.addEventListener('click', () => {
 
 SUBMIT.addEventListener('click', () => {
     const word = INPUT.value;
+    const marker = MARKER.value;
     if (word == '') return;
     LIST.insertAdjacentHTML('beforeend', `
     <li class="list-item">

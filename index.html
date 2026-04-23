@@ -7,29 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="container active">
-        <div class="btn-container">
-            <button id="addTodo" class="addTodo">+</button>
-        </div>
-    </section>
-    <dialog id="myDialog">
-        <form method="dialog" class="dialog-form">
-            <h2>What's the theme?</h2>
-            <input type="text" id="userAnswer">
-            <div class="options-continer">
-                <div>
-                    <label for="marker">Marker</label>
-                    <input type="text" id="marker" maxlength="2">
-                </div>
-                <div>
-                    <label for="color">color</label>
-                    <input type="color" id="color">
-                </div>
+    <main style="background-color: brown;" class="main-grid">
+        <section class="container active">
+            <div class="btn-container" id="addTodo" >
+                <button id="addTodo-btn" class="addTodo">+</button>
             </div>
-            <button id="cancel">Cancel</button>
-            <button id="acept" value="default">Add</button>
-        </form>
-    </dialog>
+        </section>
+        <dialog id="myDialog">
+            <form method="dialog" class="dialog-form">
+                <h2>What's the theme?</h2>
+                <input type="text" id="userAnswer" class="theme">
+                <div class="options-continer">
+                    <div class="options-continer__div">
+                        <label for="marker">Marker</label>
+                        <input type="text" id="marker" maxlength="2" class="marker-input">
+                    </div>
+                    <div class="options-continer__div">
+                        <label for="color">color</label>
+                        <input type="color" id="color">
+                    </div>
+                </div>
+                <div class="dialog-btn__container">
+                    <button class="dialog-btn" id="btn-cancel">Cancel</button>
+                    <button class="dialog-btn" id="btn-acept" value="default">Add</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
     <section class="container">
         <div id="list-container" class="list-container">
             <header>
