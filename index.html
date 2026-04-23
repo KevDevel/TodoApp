@@ -12,7 +12,25 @@
             <button id="addTodo" class="addTodo">+</button>
         </div>
     </section>
-    <section class="container active">
+    <dialog id="myDialog">
+        <form method="dialog" class="dialog-form">
+            <h2>What's the theme?</h2>
+            <input type="text" id="userAnswer">
+            <div class="options-continer">
+                <div>
+                    <label for="marker">Marker</label>
+                    <input type="text" id="marker" maxlength="2">
+                </div>
+                <div>
+                    <label for="color">color</label>
+                    <input type="color" id="color">
+                </div>
+            </div>
+            <button id="cancel">Cancel</button>
+            <button id="acept" value="default">Add</button>
+        </form>
+    </dialog>
+    <section class="container">
         <div id="list-container" class="list-container">
             <header>
                 <h1 id="title">To-Do App</h1>

@@ -6,26 +6,34 @@ const SUBMIT = document.getElementById('btn');
 
 const containers = document.querySelectorAll('.container');
 
+const dialog = document.getElementById('myDialog');
+const ACEPTBTN = document.getElementById('acept');
+const theme = document.getElementById('userAnswer');
 
 ADDBTN.addEventListener('click', () => {
+    dialog.showModal();
     containers[0].classList.remove('active');
     containers[1].classList.add('active');
+});
 
-    const theme = prompt('What is the theme?');
-    TITLE.textContent = theme || "To-Do App";
+ACEPTBTN.addEventListener('click', () => {
+    const userAnswer = theme.value;
+    TITLE.textContent = userAnswer || "To-Do App";
+    dialog.close();
 });
 
 SUBMIT.addEventListener('click', () => {
-    const inputValue = INPUT.value;
-    const word = inputValue;
-    LIST.innerHTML += `
+    const word = INPUT.value;
+    if (word == '') return;
+    LIST.insertAdjacentHTML('beforeend', `
     <li class="list-item">
         <label>
             <input type="checkbox">
             <span>${word}</span>
         </label>
-    <li>
-    `;
+        <span>${marker}</span>
+    </li>
+    `);
 });
 
 
