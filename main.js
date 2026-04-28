@@ -1,41 +1,63 @@
-const LIST = document.getElementById('list');
-const TITLE = document.getElementById('title');
-const ADDBTN = document.getElementById('addTodo');
-const INPUT = document.getElementById('input');
-const SUBMIT = document.getElementById('btn');
+const ADD_TODO = document.querySelector('.fab-container');
 
-const containers = document.querySelectorAll('.container');
+const DIALOG = document.querySelector('#myDialog');
+const BAR = document.querySelector('.bar');
+const ANS_THEME = document.querySelector('#userAnswer');
+const TAG = document.querySelector('#todo-tags');
+const MARKER = document.querySelector('#marker');
+const COLOR_OPTS = document.querySelectorAll('.color-opt');
+const CANCEL_BTN = document.getElementById('btn-cancel');
+const ACEPT_BTN = document.getElementById('btn-acept');
 
-const dialog = document.getElementById('myDialog');
-const MARKER = document.getElementById('marker');
-const ACEPTBTN = document.getElementById('acept');
-const theme = document.getElementById('userAnswer');
+const LISTS_WRAPPER = document.querySelector('.lists-wrapper');
 
-ADDBTN.addEventListener('click', () => {
-    dialog.showModal();
-    containers[0].classList.remove('active');
-    containers[1].classList.add('active');
+let selectedColor = '#f5f5f5';
+
+ADD_TODO.addEventListener('click', () => {
+    DIALOG.showModal();
 });
 
-ACEPTBTN.addEventListener('click', () => {
-    const userAnswer = theme.value;
-    TITLE.textContent = userAnswer || "To-Do App";
-    dialog.close();
+COLOR_OPTS.forEach(btn => {
+    btn.addEventListener('click', () => {
+        COLOR_OPTS.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedColor = btn.dataset.color;
+        BAR.style.backgroundColor = selectedColor;
+    });
 });
 
-SUBMIT.addEventListener('click', () => {
-    const word = INPUT.value;
-    const marker = MARKER.value;
-    if (word == '') return;
-    LIST.insertAdjacentHTML('beforeend', `
-    <li class="list-item">
-        <label>
-            <input type="checkbox">
-            <span>${word}</span>
-        </label>
-        <span>${marker}</span>
-    </li>
+let dataCards = [];
+let counter = 0;
+
+ACEPT_BTN.addEventListener('click', () => {
+    let id = counter++;
+    const newCard = {
+        defaultTitle: ANS_THEME.value || 'To-Do App',
+        tag: TAG.value,
+        marker: MARKER.value
+    };
+
+    LISTS_WRAPPER.insertAdjacentHTML('beforeend', `
+        <article class="todo-card" data-id="${id}" style="background-color: ${selectedColor};">
+            <header class="todo-card__header">
+                <h2 class="todo-card__title">${newCard.defaultTitle}</h2>
+                <span class="todo-card__tag">${newCard.tag}</span>
+            </header>
+            <section class="todo-card__preview">
+                <ul class="todo-card__preview-list">
+                    <!-- aquí solo las primeras 3 tareas, solo lectura -->
+                </ul>
+                <!-- o contenido como notas -->
+            </section>
+        </article>
     `);
+    
+    dataCards.push(newCard);
+    DIALOG.close();
+});
+
+CANCEL_BTN.addEventListener ('click', () => {
+    DIALOG.close();
 });
 
 
