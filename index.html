@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoApp</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=palette" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=more_horiz" />
 </head>
 <body>
     <main class="main-grid">
@@ -19,7 +19,7 @@
     </main>
 
     <dialog id="myDialog" aria-labelledby="dialog-title">
-        <span class="bar" style="background-color: #f5f5f5;"></span>
+        <span class="bar" style="background-color: #f2f2f2;"></span>
         <form method="dialog" class="dialog-form">
             <h2 id="dialog-title" class="dialog-form__title">Appearance</h2>
 
@@ -42,12 +42,12 @@
                 <div class="dialog-form__option">
                     <label>Color</label>
                     <div class="color-picker">
-                        <button type="button" class="color-opt selected" data-color="#f5f5f5" style="background-color: #f5f5f5;"></button>
-                        <button type="button" class="color-opt" data-color="#ffd6d6" style="background-color: #ffd6d6;"></button>
-                        <button type="button" class="color-opt" data-color="#d6e8ff" style="background-color: #d6e8ff;"></button>
-                        <button type="button" class="color-opt" data-color="#d6ffd8" style="background-color: #d6ffd8;"></button>
-                        <button type="button" class="color-opt" data-color="#fff4d6" style="background-color: #fff4d6;"></button>
-                        <button type="button" class="color-opt" data-color="#f0d6ff" style="background-color: #f0d6ff;"></button>
+                        <button type="button" class="color-opt selected" data-color="#f1f1f1" style="background-color: #787878;"></button>
+                        <button type="button" class="color-opt" data-color="#fdefee" style="background-color: #ed6b5a;"></button>
+                        <button type="button" class="color-opt" data-color="#e6f2ff" style="background-color: #038cff;"></button>
+                        <button type="button" class="color-opt" data-color="#e1fae7" style="background-color: #36c25c;"></button>
+                        <button type="button" class="color-opt" data-color="#fcf5db" style="background-color: #e6961f;"></button>
+                        <button type="button" class="color-opt" data-color="#efeaff" style="background-color: #6d3cfa;"></button>
                     </div>
                 </div>
             </fieldset>
@@ -58,6 +58,16 @@
             </div>
         </form>
     </dialog>
+    <!-- DIALOG CARD -->
+    <dialog id="card-dialog__config">
+		<header class="dialog-header">
+			<h2>Untitled</h2>
+            <button value="close">X</button>
+		</header>
+		<section>
+			<button class="add-config">+Add content</button>
+		</section>
+	</dialog>
 
     <script src="./main.js"></script>
 </body>
